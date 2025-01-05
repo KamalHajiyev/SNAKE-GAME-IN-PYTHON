@@ -1,4 +1,5 @@
 from turtle import Turtle
-
-food = Turtle('square')
-food.color('red')
+class Food:
+    def __init__(self):
+        self.food = Turtle('circle')
+        self.food.color('red')
