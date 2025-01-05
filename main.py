@@ -6,6 +6,7 @@ from SNAKES import snake
 import random
 from snakefood import Food
 snake_body = snake()
+game_over = Turtle()
 
 food = Food().food
 food.penup()
@@ -35,7 +36,7 @@ while game_is_on:
         snake_body.extend()
        
        # snake_body.segments[len(snake_body.segments)-1].goto(snake_body.segments[len(snake_body.segments)-2].xcor(),snake_body.segments[len(snake_body.segments)-2].ycor())
-
+    
 
         
   
@@ -45,8 +46,16 @@ while game_is_on:
         y_coordinate = snake_body.segments[seg-1].ycor()
         snake_body.segments[len(snake_body.segments)-1].goto(x_coordinate,y_coordinate)
         snake_body.segments[seg].goto(x_coordinate,y_coordinate)
-    snake_body.segments[0].forward(20)
+   
         
+    snake_body.segments[0].forward(20)
+    for p in  range(1,len(snake_body.segments)-1):
+        if snake_body.segments[0].xcor()==snake_body.segments[p].xcor() and snake_body.segments[0].ycor()==snake_body.segments[p].ycor():
+            game_is_on =False
+            game_over.color('red')
+            game_over.write('GAME OVER',font=('Verdana',100,'normal'))
+            
+    
 
 
 
