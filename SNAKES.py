@@ -14,6 +14,12 @@ class snake:
             new_seqment.penup()
             new_seqment.goto(position)
             self.segments.append(new_seqment)
+    def extend(self):
+        new_tail = Turtle('square')
+        new_tail.color('white')
+        new_tail.penup()
+        new_tail.goto(self.segments[-1].position())
+        self.segments.append(new_tail)
 
 
     def snake_direction_up(self):
